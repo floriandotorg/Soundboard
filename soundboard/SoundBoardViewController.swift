@@ -11,11 +11,17 @@ import RAReorderableLayout
 
 private let reuseIdentifier = "Cell"
 
-class SoundBoardCollectionViewController: UICollectionViewController, SoundBoardCollectionViewCellDelegate, RAReorderableLayoutDelegate {
+class SoundBoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, SoundBoardCollectionViewCellDelegate, RAReorderableLayoutDelegate {
   var sounds = [SoundData]()
   var shouldFadeIn = false
+  var shouldFadeOut = false
   var shouldCrossFade = false
-  let fadeTime: NSTimeInterval = 1
+  let fadeTime: NSTimeInterval = 1.5
+  
+  @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var crossFadeButton: UIButton!
+  @IBOutlet weak var fadeInButton: UIButton!
+  @IBOutlet weak var fadeOutButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,7 +56,6 @@ class SoundBoardCollectionViewController: UICollectionViewController, SoundBoard
       })
     } catch { }
     
-    self.collectionView?.subviews.first?.layer.zPosition = 10
 //    self.collectionView?.bringSubviewToFront((self.collectionView?.subviews.first)!)
     
     // Uncomment the following line to preserve selection between presentations
@@ -118,12 +123,33 @@ class SoundBoardCollectionViewController: UICollectionViewController, SoundBoard
   
   @IBAction func toggleCrossFade(sender: UIButton) {
     self.shouldCrossFade = !self.shouldCrossFade
-    sender.setTitleColor((self.shouldCrossFade ? self.view.tintColor : UIColor.darkGrayColor()), forState: UIControlState.Normal)
+    if (self.shouldCrossFade) {
+      self.shouldFadeIn = false
+      self.shouldFadeOut = false
+    }
+    self.updateButtons()
   }
   
   @IBAction func toggleFadeIn(sender: UIButton) {
     self.shouldFadeIn = !self.shouldFadeIn
-    sender.setTitleColor((self.shouldFadeIn ? self.view.tintColor : UIColor.darkGrayColor()), forState: UIControlState.Normal)
+    if (self.shouldFadeIn) {
+      self.shouldCrossFade = false
+    }
+    self.updateButtons()
+  }
+  
+  @IBAction func toggleFadeOut(sender: UIButton) {
+    self.shouldFadeOut = !self.shouldFadeOut
+    if (self.shouldFadeOut) {
+      self.shouldCrossFade = false
+    }
+    self.updateButtons()
+  }
+  
+  func updateButtons() {
+    self.fadeOutButton.setTitleColor((self.shouldFadeOut ? self.view.tintColor : UIColor.darkGrayColor()), forState: UIControlState.Normal)
+    self.fadeInButton.setTitleColor((self.shouldFadeIn ? self.view.tintColor : UIColor.darkGrayColor()), forState: UIControlState.Normal)
+    self.crossFadeButton.setTitleColor((self.shouldCrossFade ? self.view.tintColor : UIColor.darkGrayColor()), forState: UIControlState.Normal)
   }
   
   /*
@@ -138,12 +164,12 @@ class SoundBoardCollectionViewController: UICollectionViewController, SoundBoard
   
   // MARK: UICollectionViewDataSource
   
-  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+  func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
   }
   
   
-  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return self.sounds.count
   }
   
@@ -156,14 +182,14 @@ class SoundBoardCollectionViewController: UICollectionViewController, SoundBoard
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-    return UIEdgeInsetsMake(30, 10, 60 , 10)
+    return UIEdgeInsetsMake(30, 10, 10 , 10)
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     return CGSizeMake(140, 140)
   }
   
-  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SoundBoardCollectionViewCell
     
     cell.soundData = self.sounds[indexPath.row]
@@ -193,27 +219,31 @@ class SoundBoardCollectionViewController: UICollectionViewController, SoundBoard
   
   // MARK: UICollectionViewDelegate
   
-  override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     
     let soundData = sounds[indexPath.row];
-    let sound = soundData.sound
     
-    if (sound.playing) {
-      sound.stop()
+    if (soundData.sound.playing) {
+      if (self.shouldFadeOut) {
+        soundData.sound.fadeOut(self.fadeTime)
+      } else {
+        soundData.sound.stop()
+      }
     } else {
-      sound.currentTime = 0
-      sound.volume = soundData.volume
+      soundData.sound.currentTime = 0
       
       if (self.shouldCrossFade) {
         self.sounds.forEach({ el in if (el !== soundData) { el.sound.fadeOut(self.fadeTime) } })
       }
       
       if (self.shouldFadeIn || self.shouldCrossFade) {
-        sound.volume = 0
-        sound.fadeTo(soundData.volume, duration: self.fadeTime)
+        soundData.sound.volume = 0
+        soundData.sound.fadeTo(soundData.volume, duration: self.fadeTime)
+      } else {
+        soundData.sound.volume = soundData.volume
       }
       
-      sound.play()
+      soundData.sound.play()
     }
     
     self.collectionView!.reloadData()
