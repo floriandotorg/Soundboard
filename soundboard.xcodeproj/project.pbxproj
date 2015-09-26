@@ -8,20 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		178501001BAAE5B000B0EC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178500FF1BAAE5B000B0EC9A /* AppDelegate.swift */; };
-		178501021BAAE5B000B0EC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178501011BAAE5B000B0EC9A /* ViewController.swift */; };
 		178501051BAAE5B000B0EC9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178501031BAAE5B000B0EC9A /* Main.storyboard */; };
 		178501071BAAE5B000B0EC9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178501061BAAE5B000B0EC9A /* Assets.xcassets */; };
 		1785010A1BAAE5B000B0EC9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178501081BAAE5B000B0EC9A /* LaunchScreen.storyboard */; };
+		178501141BAB370100B0EC9A /* SoundBoardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178501131BAB370100B0EC9A /* SoundBoardCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		178501161BAB449400B0EC9A /* SoundBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178501151BAB449400B0EC9A /* SoundBoardCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		17F5EF211BABEB4E00E593D3 /* SoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F5EF201BABEB4D00E593D3 /* SoundData.swift */; settings = {ASSET_TAGS = (); }; };
+		CC31B5AA0CBE53701F2C76F6 /* Pods_soundboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2E96152ADDC1BD855198C9 /* Pods_soundboard.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		178500FC1BAAE5B000B0EC9A /* soundboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		178500FF1BAAE5B000B0EC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		178501011BAAE5B000B0EC9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		178501041BAAE5B000B0EC9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		178501061BAAE5B000B0EC9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		178501091BAAE5B000B0EC9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1785010B1BAAE5B000B0EC9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178501131BAB370100B0EC9A /* SoundBoardCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundBoardCollectionViewController.swift; sourceTree = "<group>"; };
+		178501151BAB449400B0EC9A /* SoundBoardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundBoardCollectionViewCell.swift; sourceTree = "<group>"; };
+		17F5EF1F1BAB4DE300E593D3 /* SoundManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundManager-Bridging-Header.h"; sourceTree = "<group>"; };
+		17F5EF201BABEB4D00E593D3 /* SoundData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundData.swift; sourceTree = "<group>"; };
+		21AA3E2BE1E57F3B787D3465 /* Pods-soundboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-soundboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-soundboard/Pods-soundboard.release.xcconfig"; sourceTree = "<group>"; };
+		49DB91FA7A5E1B87995CC8DE /* Pods-soundboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-soundboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-soundboard/Pods-soundboard.debug.xcconfig"; sourceTree = "<group>"; };
+		4C2E96152ADDC1BD855198C9 /* Pods_soundboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_soundboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC31B5AA0CBE53701F2C76F6 /* Pods_soundboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +50,8 @@
 			children = (
 				178500FE1BAAE5B000B0EC9A /* soundboard */,
 				178500FD1BAAE5B000B0EC9A /* Products */,
+				D36FC173B0A53B45409CBAE6 /* Pods */,
+				ED382FB641B4A48B175EE303 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +67,33 @@
 			isa = PBXGroup;
 			children = (
 				178500FF1BAAE5B000B0EC9A /* AppDelegate.swift */,
-				178501011BAAE5B000B0EC9A /* ViewController.swift */,
 				178501031BAAE5B000B0EC9A /* Main.storyboard */,
 				178501061BAAE5B000B0EC9A /* Assets.xcassets */,
 				178501081BAAE5B000B0EC9A /* LaunchScreen.storyboard */,
 				1785010B1BAAE5B000B0EC9A /* Info.plist */,
+				178501131BAB370100B0EC9A /* SoundBoardCollectionViewController.swift */,
+				178501151BAB449400B0EC9A /* SoundBoardCollectionViewCell.swift */,
+				17F5EF1F1BAB4DE300E593D3 /* SoundManager-Bridging-Header.h */,
+				17F5EF201BABEB4D00E593D3 /* SoundData.swift */,
 			);
 			path = soundboard;
+			sourceTree = "<group>";
+		};
+		D36FC173B0A53B45409CBAE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49DB91FA7A5E1B87995CC8DE /* Pods-soundboard.debug.xcconfig */,
+				21AA3E2BE1E57F3B787D3465 /* Pods-soundboard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED382FB641B4A48B175EE303 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2E96152ADDC1BD855198C9 /* Pods_soundboard.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1785010E1BAAE5B000B0EC9A /* Build configuration list for PBXNativeTarget "soundboard" */;
 			buildPhases = (
+				7D7DDBB29B1D0C30A1C6E0CF /* Check Pods Manifest.lock */,
 				178500F81BAAE5B000B0EC9A /* Sources */,
 				178500F91BAAE5B000B0EC9A /* Frameworks */,
 				178500FA1BAAE5B000B0EC9A /* Resources */,
+				E2D0837B31CC65FE2CE1E6F4 /* Copy Pods Resources */,
+				CD46C61032B0B60CFB627539 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -95,6 +130,7 @@
 				TargetAttributes = {
 					178500FB1BAAE5B000B0EC9A = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 3MDUCHKFTH;
 					};
 				};
 			};
@@ -129,13 +165,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7D7DDBB29B1D0C30A1C6E0CF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD46C61032B0B60CFB627539 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-soundboard/Pods-soundboard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2D0837B31CC65FE2CE1E6F4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-soundboard/Pods-soundboard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		178500F81BAAE5B000B0EC9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				178501021BAAE5B000B0EC9A /* ViewController.swift in Sources */,
 				178501001BAAE5B000B0EC9A /* AppDelegate.swift in Sources */,
+				17F5EF211BABEB4E00E593D3 /* SoundData.swift in Sources */,
+				178501141BAB370100B0EC9A /* SoundBoardCollectionViewController.swift in Sources */,
+				178501161BAB449400B0EC9A /* SoundBoardCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +287,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "soundboard/SoundManager-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -239,6 +326,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "soundboard/SoundManager-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -246,8 +334,10 @@
 		};
 		1785010F1BAAE5B000B0EC9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49DB91FA7A5E1B87995CC8DE /* Pods-soundboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = soundboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = florian.soundboard;
@@ -257,8 +347,10 @@
 		};
 		178501101BAAE5B000B0EC9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21AA3E2BE1E57F3B787D3465 /* Pods-soundboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = soundboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = florian.soundboard;
@@ -285,6 +377,7 @@
 				178501101BAAE5B000B0EC9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,13 @@
+PODS:
+  - RAReorderableLayout (0.2.0)
+  - SoundManager (1.4.2)
+
+DEPENDENCIES:
+  - RAReorderableLayout
+  - SoundManager
+
+SPEC CHECKSUMS:
+  RAReorderableLayout: 8606800c169cace4fc7db5a26577f089c5b9062d
+  SoundManager: 99ae328a3ec9b259db774c9851a65feeceba8183
+
+COCOAPODS: 0.38.2
